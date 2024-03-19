@@ -14,9 +14,10 @@ const PORT = process.env.PORT
 app.use(cors());
 
 //on demande à express d'extraire les données envoyées dans le corps de la requête
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const multipart = multer();
+// const multipart = multer();
 // on  demande à express d'extraire les données envoyées dans le corps de la requête formatées en multipart
 
 //on utilise le fichier route auquel les requêtes seront redirigees
