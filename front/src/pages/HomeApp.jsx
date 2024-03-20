@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import ActionsComponent from '../components/ActionsComponent';
+import AddInboxButton from '../components/Button/AddInboxButton';
 
 function HomeApp() {
   const location = useLocation();
@@ -11,6 +12,7 @@ function HomeApp() {
     <div>
       <Header firstName={firstName} />
       <ActionsComponent />
+      <AddInboxButton />
     </div>
   );
 }
