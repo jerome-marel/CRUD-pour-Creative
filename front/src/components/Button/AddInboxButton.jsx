@@ -10,7 +10,7 @@ const AddInboxButton = () => {
 
   return (
     <div>
-      <ListPlus onClick={handleButtonClick} size={24} /> 
+      <ListPlus onClick={handleButtonClick} size={36} /> 
     </div>
   );
 };

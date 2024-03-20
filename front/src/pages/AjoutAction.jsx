@@ -12,26 +12,22 @@ const AjoutAction = () => {
 
   const handleValidation = async () => {
     try {
-      // Effectuer la requête POST avec Axios
-      const response = await axios.post('/action/', { name });
-
-      // Une fois l'action créée avec succès, rediriger l'utilisateur
-      if (response.status === 201) {
-        console.log('Action ajoutée avec succès:', response.data);
-        navigate('/home/');
-      } else {
-        console.error('Erreur lors de l\'ajout de l\'action');
-      }
+      await axios.post('/action', { name });
+      console.log('Action ajoutée:', name);
+      navigate('/');
     } catch (error) {
-      console.error('Erreur:', error);
+      console.error("Erreur lors de l'ajout de l'action :", error);
     }
   };
 
   return (
     <div>
-      <h1>Action à rajouter</h1>
-      <input type="text" value={name} onChange={handleNameChange} />
-      <button onClick={handleValidation}>Ajouter</button>
+      <h1>Ajouter une action</h1>
+      <label>
+        Nom de l'action:
+        <input type="text" value={name} onChange={handleNameChange} />
+      </label>
+      <button onClick={handleValidation}>Valider</button>
     </div>
   );
 };

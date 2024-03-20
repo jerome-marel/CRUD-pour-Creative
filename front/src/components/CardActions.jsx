@@ -4,7 +4,7 @@ import DeleteActionButton from './Button/DeleteActionButton';
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    margin: theme.spacing(2),
+    margin: theme.spacing(1),
     backgroundColor: 'transparent',
     position: 'relative',
     transition: 'transform 0.3s ease-in-out',
@@ -33,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between', 
   },
   mainText: {
-    fontSize: '18px',
-    fontWeight: 'bold',
+    fontSize: theme.typography.h2.fontSize, 
+    fontWeight: theme.typography.h2.fontWeight, 
     color: theme.palette.text.primary,
     marginRight: '10px', 
   },
