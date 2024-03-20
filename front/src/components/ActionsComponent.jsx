@@ -25,18 +25,22 @@ function ActionsComponent() {
       await axios.delete(`/action/${id}`);
       console.log('Action supprimée avec succès');
 
-     
       setActions(prevActions => prevActions.filter(action => action.id !== id));
     } catch (error) {
       console.error("Erreur lors de la suppression de l'action :", error);
     }
   };
 
+  const handleEditAction = (id) => {
+    console.log('Edition de l\'action avec ID:', id);
+    return id; 
+  };
+
   return (
     <Grid container spacing={1} justifyContent="center">
       {actions.map((action) => (
         <Grid item xs={12} key={action.id}>
-          <CardAction id={action.id} text={action.name} onDelete={handleDeleteAction} />
+          <CardAction id={action.id} text={action.name} onDelete={handleDeleteAction} onEdit={() => handleEditAction(action.id)} />
         </Grid>
       ))}
     </Grid>

@@ -18,8 +18,7 @@ const DeleteActionButton = ({ id, onDelete }) => {
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
-          padding: '10px',
+          marginRight: '5px', 
         }}
       >
         <CircleX size={40} color="#c01c28" strokeWidth={1.25} />

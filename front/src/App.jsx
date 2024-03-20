@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import HomeApp from "./pages/HomeApp";
 import Layout from "./pages/Layout";
 import AjoutAction from "./pages/AjoutAction";
+import MofifAction from "./pages/ModifAction";
 import './index.css';
 
 const theme = createTheme({
@@ -37,16 +38,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <Routes>
-          {/* Route pour HomeApp */}
-          <Route
-            path="/"
-            element={<Layout><HomeApp /></Layout>}
-          />
-          {/* Route pour AjoutAction */}
-          <Route
-            path="home/add"
-            element={<Layout><AjoutAction /></Layout>}
-          />
+          <Route path="/" element={<Layout><HomeApp /></Layout>} />
+          <Route path="home/add" element={<Layout><AjoutAction /></Layout>} />
+          <Route path="home/edit/:id" element={<Layout><MofifAction /></Layout>} />
         </Routes>
       </Router>
     </ThemeProvider>
