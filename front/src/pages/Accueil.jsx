@@ -11,7 +11,7 @@ function Accueil() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Naviguer vers HomeApp en passant le prénom en tant que paramètre
+    //  Renvoie vers la page Home après le saisie du prénom de l'utilisateur
     navigate('/home', { state: { firstName: firstName } });
   };
 

@@ -1,12 +1,13 @@
-import { Card, Typography, CardContent, Button } from '@mui/material';
-import { makeStyles } from '@mui/styles'; // Importez makeStyles à partir de @mui/styles
+import { Card, Typography, CardContent } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import DeleteActionButton from './Button/DeleteActionButton';
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    margin: theme.spacing(1, 2),
-    backgroundColor: 'transparent', // Définir la couleur de fond comme transparent
-    position: 'relative', // Position relative pour les pseudo-éléments
-    transition: 'transform 0.3s ease-in-out', // Transition pour l'effet de survol
+    margin: theme.spacing(2),
+    backgroundColor: 'transparent',
+    position: 'relative',
+    transition: 'transform 0.3s ease-in-out',
     '&:hover': {
       transform: 'scale(1.02)',
     },
@@ -17,32 +18,30 @@ const useStyles = makeStyles((theme) => ({
       left: 0,
       width: '100%',
       height: '100%',
-      background: 'linear-gradient(45deg, #FFD700, #FFA500)', // Dégradé jaune soleil
-      opacity: 0, // Par défaut, invisible
-      transition: 'opacity 0.3s ease-in-out', // Transition pour l'effet de survol
+      background: 'linear-gradient(45deg, #FFD700, #FFA500)',
+      opacity: 0,
+      transition: 'opacity 0.3s ease-in-out',
     },
     '&:hover::before': {
-      opacity: 1, // Au survol, rendre visible
+      opacity: 1,
     },
   },
   cardContent: {
-    position: 'relative', // Pour empiler les textes sur le dégradé
-    zIndex: 1, // Empiler au-dessus du dégradé
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between', 
   },
   mainText: {
     fontSize: '18px',
     fontWeight: 'bold',
     color: theme.palette.text.primary,
+    marginRight: '10px', 
   },
 }));
 
-function CardAction({ id, text }) {
+function CardAction({ id, text, onDelete }) {
   const classes = useStyles();
-
-  const handleClick = () => {
-    // Gérer le clic sur le bouton avec l'ID
-    console.log(`Bouton cliqué pour l'ID: ${id}`);
-  };
 
   return (
     <Card className={classes.card}>
@@ -50,9 +49,7 @@ function CardAction({ id, text }) {
         <Typography className={classes.mainText}>
           {text}
         </Typography>
-        <Button onClick={handleClick} variant="contained" color="primary">
-          Voir détails
-        </Button>
+        <DeleteActionButton id={id} onDelete={onDelete} />
       </CardContent>
     </Card>
   );

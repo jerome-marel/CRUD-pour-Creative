@@ -26,6 +26,20 @@ const actionController = {
       );
       res.status(500).json({ error: "Erreur interne du serveur" });
     }
+  },
+
+  async deleteAction(req, res) {
+    try {
+      const { id } = req.params;
+      await Actions.destroy({ where: { id } });
+      res.sendStatus(204);
+    } catch (error) {
+      console.error(
+        "Une erreur est survenue lors de la suppression d'une action :",
+        error.message
+      );
+      res.status(500).json({ error: "Erreur interne du serveur" });
+    }
   }
 };
 

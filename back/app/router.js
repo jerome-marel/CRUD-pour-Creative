@@ -8,4 +8,6 @@ router.get('/', actionController.listActions);
 
 router.post('/action', actionController.createAction);
 
+router.delete('/action/:id', actionController.deleteAction);
+
 module.exports = router;
