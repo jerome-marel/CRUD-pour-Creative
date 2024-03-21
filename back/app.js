@@ -4,7 +4,6 @@ require('dotenv').config();
 //déclaration des modules à utiliser
 const express = require ('express');
 const cors = require ('cors');
-const multer = require ('multer');
 const router = require ('./app/router');
 
 const app = express ();
@@ -16,9 +15,6 @@ app.use(cors());
 //on demande à express d'extraire les données envoyées dans le corps de la requête
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// const multipart = multer();
-// on  demande à express d'extraire les données envoyées dans le corps de la requête formatées en multipart
 
 //on utilise le fichier route auquel les requêtes seront redirigees
 app.use(router);
